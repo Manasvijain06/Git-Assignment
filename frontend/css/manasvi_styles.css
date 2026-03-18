@@ -1,5 +1,12 @@
+/* CSS Styling Enhancement for Manasvi's Portfolio */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+/* Body styling */
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
 }
