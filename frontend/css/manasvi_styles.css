@@ -231,3 +231,20 @@ footer a {
     margin: 0 10px;
     text-decoration: none;
 }
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header img {
+        width: 100px;
+        height: 100px;
+    }
+}
