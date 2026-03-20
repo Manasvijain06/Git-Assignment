@@ -26,3 +26,19 @@ const students = [
 
 // storing all student data in a array of objects
 // Each student object contains the name, marks (array of subjects), and attendance.
+
+/* 2.2 Function to calculate total marks*/
+function calculateTotalMarks(student) {
+    let totalMarks = 0;
+
+    // Loop through each subject's marks and add to totalMarks
+    for(let i = 0; i < student.marks.length; i++) {
+        totalMarks += student.marks[i].score;
+    }   
+    return totalMarks;
+}   
+// print total marks
+students.forEach(student => {
+    const totalMarks = calculateTotalMarks(student);
+    console.log(student.name + " has total marks: " + totalMarks);
+});
