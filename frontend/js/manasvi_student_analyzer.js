@@ -75,3 +75,27 @@ subjects.forEach(function(sub){
     // print the highest score and the top scorer for the subject
     console.log("Highest score in " + sub + " is " + highestScore + " by " + topScorer);
 });
+
+/* Subject-wise Average Score */
+subjects.forEach(function(sub) {
+  let totalScore = 0;
+  let count = 0;
+
+  //loop through each student and their marks to calculate total score and count for the subject
+  students.forEach(function(student) {
+    student.marks.forEach(function(mark) {
+
+      // check if subject matches
+      if (mark.subject === sub) {
+        totalScore += mark.score;
+        count++;
+      }
+
+    });
+  });
+
+  let average = totalScore / count;
+
+  // print average
+  console.log("Average score in " + sub + " is " + average);
+});
