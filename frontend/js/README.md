@@ -14,6 +14,7 @@ The program analyzes student performance and calculates different results like t
 ---
 
 ## 📂 Project Structure
+```
 frontend/
 ├── js/
 │   └── manasvi_student_analyzer.js
@@ -26,6 +27,7 @@ frontend/
 │   ├── Total_Marks.png
 │   └── class_Topper.png
 └── README.md
+```
 
 ---
 
