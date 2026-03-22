@@ -213,3 +213,26 @@ document.getElementById("search").addEventListener("input", applyFilters);
 document.getElementById("categoryFilter").addEventListener("change", applyFilters);
 document.getElementById("stockFilter").addEventListener("change", applyFilters);
 document.getElementById("sort").addEventListener("change", applyFilters);
+
+// ANALYTICS
+function updateAnalytics() {
+  document.getElementById("totalProducts").innerText = products.length;
+
+  const totalValue = products.reduce((sum, p) => sum + p.price * p.stock, 0);
+  document.getElementById("totalValue").innerText = totalValue;
+
+  const out = products.filter(p => p.stock === 0).length;
+  document.getElementById("outOfStock").innerText = out;
+}
+// CATEGORY
+function loadCategories() {
+  const categories = [...new Set(products.map(p => p.category))];
+  const dropdown = document.getElementById("categoryFilter");
+
+  categories.forEach(cat => {
+    const option = document.createElement("option");
+    option.value = cat;
+    option.textContent = cat;
+    dropdown.appendChild(option);
+  });
+}
