@@ -82,3 +82,27 @@ function renderProducts(list) {
 
     setupPagination(list.length);
 }
+
+// PAGINATION
+function setupPagination(totalItems) {
+    const pagination = document.getElementById("pagination");
+    pagination.innerHTML = "";
+
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+
+        if (i === currentPage) {
+            btn.classList.add("active-page");
+        }
+
+        btn.onclick = () => changePage(i);
+        pagination.appendChild(btn);
+    }
+}
+function changePage(page) {
+    currentPage = page;
+    renderProducts(filteredProducts);
+}
