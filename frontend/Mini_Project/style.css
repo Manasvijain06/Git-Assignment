@@ -40,3 +40,61 @@ input, select {
   color: white;
   flex: 1;
 }
+
+/* ANALYTICS */
+.analytics {
+  background: #020617;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #1e293b;
+  margin-bottom: 20px;
+}
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.dashboard div {
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #1e293b;
+}
+
+.dashboard span {
+  display: block;
+  font-size: 20px;
+  color: #38bdf8;
+}
+
+/* PRODUCTS */
+#productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* EMPTY */
+#emptyMessage {
+  text-align: center;
+  color: white;
+ 
+}
+/* Pagination Center */
+#pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#pagination button {
+  margin: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.active-page {
+  background: black;
+  color: white;
+}
