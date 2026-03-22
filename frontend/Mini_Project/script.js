@@ -164,3 +164,52 @@ function openEdit(id) {
   const submitBtn = document.getElementById("submitBtn");
   submitBtn.innerText = "Update Product";
 }
+
+// ADD PRODUCT
+document.getElementById("productForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const price = +document.getElementById("price").value;
+  const stock = +document.getElementById("stock").value;
+  const category = document.getElementById("category").value;
+
+  if (!name || price <= 0 || stock < 0 || !category) {
+    alert("Invalid Input");
+    return;
+  }
+
+  if (editId !== null) {
+  const index = products.findIndex(p => p.id === editId);
+
+  products[index] = {
+    id: editId,
+    name,
+    price,
+    stock,
+    category
+  };
+
+  editId = null;
+  document.getElementById("submitBtn").innerText = "Add Product";
+} else {
+  const newProduct = {
+    id: Date.now(),
+    name,
+    price,
+    stock,
+    category
+  };
+  products.push(newProduct);
+}
+
+  saveData();
+  applyFilters();
+  this.reset();
+});
+
+// EVENTS
+document.getElementById("search").addEventListener("input", applyFilters);
+document.getElementById("categoryFilter").addEventListener("change", applyFilters);
+document.getElementById("stockFilter").addEventListener("change", applyFilters);
+document.getElementById("sort").addEventListener("change", applyFilters);
