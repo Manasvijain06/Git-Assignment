@@ -76,7 +76,7 @@ input, select {
   gap: 15px;
 }
 
-/* EMPTY */
+/* No product found msg */
 #emptyMessage {
   text-align: center;
   color: white;
