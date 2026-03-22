@@ -106,3 +106,39 @@ function changePage(page) {
     currentPage = page;
     renderProducts(filteredProducts);
 }
+
+// FILTERS
+function applyFilters() {
+  currentPage = 1;
+
+  let filtered = [...products];
+
+  const search = document.getElementById("search").value.toLowerCase();
+  const category = document.getElementById("categoryFilter").value;
+  const stock = document.getElementById("stockFilter").value;
+  const sort = document.getElementById("sort").value;
+
+  if (search) {
+    filtered = filtered.filter(p =>
+      p.name.toLowerCase().includes(search)
+    );
+  }
+
+  if (category !== "all") {
+    filtered = filtered.filter(p => p.category === category);
+  }
+
+  if (stock === "low") {
+    filtered = filtered.filter(p => p.stock < 5);
+  }
+
+  if (sort === "low-high") filtered.sort((a, b) => a.price - b.price);
+  if (sort === "high-low") filtered.sort((a, b) => b.price - a.price);
+  if (sort === "az") filtered.sort((a, b) => a.name.localeCompare(b.name));
+  if (sort === "za") filtered.sort((a, b) => b.name.localeCompare(a.name));
+
+  filteredProducts = filtered;
+
+  renderProducts(filteredProducts);
+  updateAnalytics();
+}
