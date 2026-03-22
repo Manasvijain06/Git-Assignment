@@ -142,3 +142,25 @@ function applyFilters() {
   renderProducts(filteredProducts);
   updateAnalytics();
 }
+
+// DELETE
+function deleteProduct(id) {
+  products = products.filter(p => p.id !== id);
+  saveData();
+  applyFilters();
+}
+
+//EDIT 
+function openEdit(id) {
+  const product = products.find(p => p.id === id);
+
+  document.getElementById("name").value = product.name;
+  document.getElementById("price").value = product.price;
+  document.getElementById("stock").value = product.stock;
+  document.getElementById("category").value = product.category;
+
+  editId = id;
+  //change button 
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.innerText = "Update Product";
+}
